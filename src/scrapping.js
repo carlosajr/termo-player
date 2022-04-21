@@ -12,44 +12,42 @@ const typeEnter = async (page) => {
     await buttonHandle.click();
 }
 
-const getWrongLetters = async (page) => {
-    return page.evaluate(
-        () => Array.from(
-            document.querySelector("body > wc-kbd").shadowRoot.querySelectorAll(".wrong")
-        ).map(element => element.innerHTML.toUpperCase()
-    ));
+const getBoards = async ({page}) => {
+    return page.evaluate(() => Array.from(document.querySelectorAll("wc-board")).map(element => element.getAttribute('id')));
 }
 
-const getNotPositionedLetters = async (page, row) => {
-    return page.evaluate(
-        (row) => Array.from(
-            document.querySelector("#board0").shadowRoot.querySelector(`#hold > wc-row:nth-child(${row})`).shadowRoot.querySelectorAll(".place")
-        ).map(element => {
-            return { 
-                letter: element.innerHTML.toUpperCase(),
-                position: element.getAttribute('lid')
-            }
-        })
-    , row);
+const getRows = async ({page, board}) => {
+    return page.evaluate(({board}) => Array.from(
+        document.querySelector(`#${board}`).shadowRoot.querySelectorAll("#hold > wc-row")
+    ).map(element => parseInt(element.getAttribute('termo-row'))), {board});
 }
 
-const getPositionedLetters = async (page, row) => {
+const getLetters = async ({page, board, className}) => {
     return page.evaluate(
-        (row) => Array.from(
-            document.querySelector("#board0").shadowRoot.querySelector(`#hold > wc-row:nth-child(${row})`).shadowRoot.querySelectorAll(".right")
-        ).map(element => {
-            return { 
-                letter: element.innerHTML.toUpperCase(),
-                position: element.getAttribute('lid')
+        async ({board, className}) => {
+            const letters = [];
+            const rows = document.querySelector(`#${board}`).shadowRoot.querySelectorAll("#hold > wc-row");
+
+            for (const row of rows) {
+                const elements = row.shadowRoot.querySelectorAll(`.${className}`);
+
+                for (const element of elements) {
+                    const letter = await sanitize(element.innerHTML.toUpperCase());
+                    const position = element.getAttribute('lid');   
+
+                    const existsLetter = letters.find(el => el.letter === letter && el.position === position)
+                    if(!existsLetter) letters.push({letter, position});
+                }
             }
-        }
-    ), row);
+
+            return letters;
+        }, {board, className});
 }
 
 module.exports = {
     writeWord, 
     typeEnter,
-    getWrongLetters,
-    getNotPositionedLetters,
-    getPositionedLetters
+    getLetters,
+    getBoards,
+    getRows
 }   

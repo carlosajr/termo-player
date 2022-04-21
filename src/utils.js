@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const alphabetWeight = require('../assets/alphabetWeight.json');
 const alphabet = require('../assets/alphabet.json');
 
@@ -52,7 +54,18 @@ const getHeavyWord = (words) => {
     return heavyWord[0];
 }
 
+const checkBrowse = (path) => {
+    return new Promise((resolve, reject) => {    
+        fs.access(path, fs.constants.F_OK, (err) => {
+            if (err) resolve(false);
+
+            resolve(true);
+        });
+    });
+}
+
 module.exports = {
     sanitize,
-    getHeavyWord
+    getHeavyWord,
+    checkBrowse
 }
