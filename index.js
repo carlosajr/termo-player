@@ -113,6 +113,10 @@ console.log(screens['INITIAL']);
                         filteredWords = filterRandomLetters(filteredWords, lettersInTheWord);
                         filteredWords = filterPositionedLetters(filteredWords, positionedLetters);
                         filteredWords = filterNotPositionedLetters(filteredWords, notPositionedLetters);
+
+                        if (filteredWords.length <= 20) {
+                            console.log('Escolhendo entre: ', filteredWords);
+                        }
                         
                         selectedWord = getHeavyWord(filteredWords);
                         console.log('Digitando: '+selectedWord);
