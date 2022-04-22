@@ -21,7 +21,7 @@ Foram usadas na construção do projeto as seguintes ferramentas *Node.js com Pu
 
 ### 📋 Metodologia
 
-🎲 Foi utilizado o banco de dados de palavras na língua portuguesa do brasil disponibilizado pelo IME USP, com 261.799 palavras, que pode ser acessado por <a href="https://www.ime.usp.br/~pf/dicios/index.html"> aqui. </a>
+🎲 Foi utilizado o banco de dados de palavras na língua portuguesa do brasil disponibilizado pelo IME USP, com 261.799 palavras, que pode ser acessado por <a target="_blank" href="https://www.ime.usp.br/~pf/dicios/index.html"> aqui. </a>
 
 🛠 Com o puppeteer conseguimos interagir com o navegador, por meio de *web scraping*, tanto para obter informações quanto para executar ações.
 
