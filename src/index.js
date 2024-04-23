@@ -159,7 +159,7 @@ console.log(screens["INITIAL"]);
             round++;
             console.log("------------------");
           } catch (error) {
-            console.log(error)
+            console.log(error);
             await page.evaluate(`alert('Você Perdeu! D=');`);
             await browser.close();
             break;

@@ -36,7 +36,7 @@ const order = words => {
     }
   }
 
-  sortable.sort(function (a, b) {
+  sortable.sort(function(a, b) {
     return b[1] - a[1];
   });
 

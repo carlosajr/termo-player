@@ -47,6 +47,7 @@ export const getLetters = ({ page, board, className }) => {
 
         for (const element of elements) {
           // @ts-ignore
+          // eslint-disable-next-line
           const letter = await sanitizeScrapping(element.innerHTML.toUpperCase());
           const position = element.getAttribute("lid");
 
