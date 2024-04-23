@@ -10,8 +10,6 @@
                             \ \_\    \ \_____\  \ \_\ \_\  \/\_____\  \ \_____\  \ \_\ \_\
                              \/_/     \/_____/   \/_/\/_/   \/_____/   \/_____/   \/_/ /_/
 
-<img src="https://s9.gifyu.com/images/SZrYf.gif">
-
 ## 📋 Tecnologias
 
 Foram usadas na construção do projeto as seguintes ferramentas
@@ -74,3 +72,6 @@ Depois de preparar o projeto, você pode executá-lo localmente com o seguinte c
 ```bash
 npm run play
 ```
+
+## 📋 Resultado
+<img src="https://s9.gifyu.com/images/SZoxA.gif">
