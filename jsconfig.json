@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "checkJs": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"],
+      "@assets/*": ["assets/*"],
+      "@utils/*": ["utils/*"]
+    },
+    "types": []
+  },
+  "exclude": ["node_modules"],
+  "include": ["src"]
+}

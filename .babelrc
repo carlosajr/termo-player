@@ -1,0 +1,25 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "20"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {
+          "@": "./src",
+          "@assets": "./src/assets",
+          "@utils": "./src/utils"
+        }
+      }
+    ]
+  ]
+}
